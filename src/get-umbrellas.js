@@ -1,7 +1,7 @@
 //
 
 export default function getUmbrellas(requirement, sizes) {
-  console.log(`requirement: ${requirement}, sizes: ${sizes}`)
+  // console.log(`requirement: ${requirement}, sizes: ${sizes}`)
 
   // initialize min count
   let count = Number.MAX_SAFE_INTEGER

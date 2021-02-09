@@ -2,28 +2,48 @@ import { expect } from "chai"
 import getUmbrellas from "../src/get-umbrellas.js"
 
 describe("get min elements in sizes for people required", () => {
-  xit("get min count in small array with exactly single match", () => {
+  it("get min count in small array with exactly single match", () => {
     let actual = getUmbrellas(10, [1, 2, 3, 6, 10])
     expect(actual).equal(1)
   })
 
-  xit("get min count in two matches one smaller than the other", () => {
+  it("get min count in two matches one smaller than the other", () => {
     let actual = getUmbrellas(12, [1, 2, 3, 6, 10])
     expect(actual).equal(4)
   })
 
-  xit("get no answer to be -1", () => {
+  it("get no answer to be -1", () => {
     let actual = getUmbrellas(40, [1, 2, 3, 6, 10])
     expect(actual).equal(-1)
   })
 
-  xit("30 + 3 = 33, shorted distance is 2", () => {
-    let actual = getUmbrellas(33, [1, 4, 30, 3, 10, 5])
+  it("30 + 3 = 33, shorted distance is 2", () => {
+    let actual = getUmbrellas(33, [1, 4, 30, 3, 10, 5, 18])
     expect(actual).equal(2)
   })
 
   it("30 + 3 = 33, shorted distance is 1", () => {
-    let actual = getUmbrellas(33, [1, 4, 28, 33, 30, 3, 10, 5])
+    let actual = getUmbrellas(33, [1, 4, 28, 30, 3, 10, 5, 33])
     expect(actual).equal(1)
+  })
+
+  it("very long array, ~1000 elements", () => {
+    let actual = getUmbrellas(
+      (301 * 302) / 2,
+      [].concat(
+        ...Array(300)
+          .fill()
+          .map((x, i) => i + 1) /* len 300 */,
+        ...Array(298)
+          .fill()
+          .map((x, i) => i + 1),
+        299 + 300 /* len 299 */,
+        (300 * 301) / 2 /* len 1 */,
+        ...Array(301)
+          .fill()
+          .map((x, i) => i + 1)
+      )
+    )
+    expect(actual).equal(301)
   })
 })
