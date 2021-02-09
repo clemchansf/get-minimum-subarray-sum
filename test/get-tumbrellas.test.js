@@ -34,16 +34,19 @@ describe("get min elements in sizes for people required", () => {
         ...Array(300)
           .fill()
           .map((x, i) => i + 1) /* len 300 */,
-        ...Array(298)
+        ...Array(298) /* [1...300, 1].length == 301, */
           .fill()
           .map((x, i) => i + 1),
-        299 + 300 /* len 299 */,
-        (300 * 301) / 2 /* len 1 */,
-        ...Array(301)
+        299 + 301 /*  [1..298 + 299 + 301].length === 300 */,
+        (300 * 301) / 2 /* len 1, but 301 */,
+        ...Array(200)
+          .fill()
+          .map((x, i) => i + 1),
+        ...Array(200)
           .fill()
           .map((x, i) => i + 1)
       )
     )
-    expect(actual).equal(301)
+    expect(actual).equal(300)
   })
 })
