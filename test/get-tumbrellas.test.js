@@ -38,7 +38,7 @@ describe("get min elements in sizes for people required", () => {
           .fill()
           .map((x, i) => i + 1),
         299 + 301 /*  [1..298 + 299 + 301].length === 300 */,
-        (300 * 301) / 2 /* len 1, but 301 */,
+        (300 * 301) / 2 /* len 1, but 300 */,
         ...Array(200)
           .fill()
           .map((x, i) => i + 1),
