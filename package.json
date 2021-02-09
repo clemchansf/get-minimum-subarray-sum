@@ -1,0 +1,20 @@
+{
+  "name": "PatreonChallenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha \"./test/**/*.test.js\" --recursive --require @babel/register || true",
+    "test:watch": "npx mocha \"*/test/**/*.test.js\" --recursive --require @babel/register --watch || true"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "@babel/register": "^7.12.13",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
+  }
+}
